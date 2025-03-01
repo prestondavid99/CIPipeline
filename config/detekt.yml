@@ -1,0 +1,10 @@
+build:
+  maxIssues: 10
+  weights:
+    complexity: 2
+    LongParameterList: 1
+
+formatting:
+  active: true
+  Indentation:
+    indentSize: 4
