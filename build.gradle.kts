@@ -8,6 +8,8 @@ plugins {
     id("io.gitlab.arturbosch.detekt") version "1.23.6" apply false
 }
 
+// Hopefully this works
+
 buildscript {
     dependencies {
         classpath("org.jlleitschuh.gradle:ktlint-gradle:12.1.1")
