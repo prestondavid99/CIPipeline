@@ -1,6 +1,6 @@
 name: KMP Linting
 
-on: # Triggers
+on:
   push:
     branches: [ main ]
   pull_request:
@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          # Required for auto-commit to work
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
 
       - name: Setup JDK 17
         uses: actions/setup-java@v4
@@ -29,6 +33,14 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
+
+      - name: Attempt Auto-fix
+        run: |
+          ./gradlew ktlintFormat
+          git diff --quiet || (git config --global user.email "ci@example.com" && \
+          git config --global user.name "CI Bot" && \
+          git commit -am "ktlint auto-fix [skip ci]" && \
+          git push)
 
       - name: Run ktlint
         run: ./gradlew ktlintCheck
