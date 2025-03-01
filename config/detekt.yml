@@ -1,10 +1,31 @@
 build:
-  maxIssues: 10
+  maxIssues: 1000
   weights:
-    complexity: 2
-    LongParameterList: 1
+    complexity: 0
+    LongParameterList: 0
+
+processors:
+  active: false
 
 formatting:
   active: true
+  autoCorrect: true
   Indentation:
+    active: true
     indentSize: 4
+  NoWildcardImports:
+    active: false
+  SpacingAroundComma:
+    active: false
+  SpacingAroundKeyword:
+    active: false
+
+style:
+  FunctionNaming:
+    active: false
+  ClassNaming:
+    active: false
+  MagicNumber:
+    active: false
+  WildcardImport:
+    active: false

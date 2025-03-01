@@ -40,14 +40,14 @@ fun MyApplicationTheme(
                 TextStyle(
                     fontFamily = FontFamily.Default,
                     fontWeight = FontWeight.Normal,
-                    fontSize = 16.sp,
+                    fontSize = ThemeConstants.BODY_MEDIUM_FONT_SIZE.sp,
                 ),
         )
     val shapes =
         Shapes(
-            small = RoundedCornerShape(4.dp),
-            medium = RoundedCornerShape(4.dp),
-            large = RoundedCornerShape(0.dp),
+            small = RoundedCornerShape(ThemeConstants.CORNER_RADIUS_SMALL.dp),
+            medium = RoundedCornerShape(ThemeConstants.CORNER_RADIUS_MEDIUM.dp),
+            large = RoundedCornerShape(ThemeConstants.CORNER_RADIUS_LARGE.dp),
         )
 
     MaterialTheme(
